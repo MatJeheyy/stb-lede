@@ -12,3 +12,36 @@
 
 # Modify default IP
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
+
+# 移除 SNAPSHOT 标签
+sed -i 's,-SNAPSHOT,,g' include/version.mk
+sed -i 's,-SNAPSHOT,,g' package/base-files/image-config.in
+
+
+
+# kengzo
+git clone https://github.com/kenzok8/openwrt-packages package/new/kengzo
+git clone https://github.com/kenzok8/small package/new/small
+
+# php7
+git clone https://github.com/kea/openwrt-php7-package.git package/new/php7
+
+# Autocore Stb
+git clone https://github.com/MatJehey/autocore-arm-x86.git package/new/luci-app-autocore
+
+# AutoCore
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/emortal/autocore package/lean/autocore
+rm -rf ./feeds/packages/utils/coremark
+svn co https://github.com/immortalwrt/packages/trunk/utils/coremark feeds/packages/utils/coremark
+
+# modem
+git clone https://github.com/4IceG/luci-app-3ginfo-lite.git package/new/luci-app-3ginfo-lite
+
+# Bypass
+git clone https://github.com/kiddin9/openwrt-bypass.git package/new/luci-app-bypass
+
+# Add luci-app-amlogic
+svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
+
+# Add p7zip
+svn co https://github.com/hubutui/p7zip-lede/trunk package/p7zip
