@@ -30,9 +30,10 @@ git clone https://github.com/kea/openwrt-php7-package.git package/new/php7
 git clone https://github.com/MatJehey/autocore-arm-x86.git package/new/luci-app-autocore
 
 # AutoCore
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/emortal/autocore package/lean/autocore
+svn export https://github.com/immortalwrt/immortalwrt/branches/master/package/emortal/autocore package/lean/autocore
+sed -i 's/"getTempInfo" /"getTempInfo", "getCPUBench", "getCPUUsage" /g' package/lean/autocore/files/generic/luci-mod-status-autocore.json
 rm -rf ./feeds/packages/utils/coremark
-svn co https://github.com/immortalwrt/packages/trunk/utils/coremark feeds/packages/utils/coremark
+svn export https://github.com/immortalwrt/packages/trunk/utils/coremark feeds/packages/utils/coremark
 
 # modem
 git clone https://github.com/4IceG/luci-app-3ginfo-lite.git package/new/luci-app-3ginfo-lite
